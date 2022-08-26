@@ -2,7 +2,9 @@
 
 常用的中文字体
 
-字体从Windows 10当中提取。可用于Mac安装。安装步骤如下：
+字体从Windows 10当中提取。可用于Mac/Linux安装。
+
+## Mac安装步骤如下：
 
 **若安装过同名的字体，请删除并清空缓存后再行安装。**
 
@@ -10,6 +12,37 @@
 * 在mac使用快捷键`command+space空格`，搜索并打开字体册
 * 点击菜单`文件->添加字体`，选择所下载的字体文件，打开即可自动安装
 * 安装完字体后，相关应用需要重启才能找到新安装的字体
+
+## Ubuntu安装步骤如下：
+
+**Ubuntu安装方法见[参考](https://blog.csdn.net/zfy_220/article/details/125994811)**
+
+* 拷贝字体到/usr/share/fonts/truetype/windows-font 目录下
+* 安装字体：
+```
+#更改文件夹权限
+sudo chmod -R 777  /usr/share/fonts/truetype/windows-font
+cd /usr/share/fonts/truetype/windows-font
+ 
+# 如果提示 mkfontscale: command not found
+# 在Ubuntu下运行如下命令
+# sudo apt-get install ttf-mscorefonts-installer
+# 在cent os下运行如下命令
+# yum install mkfontscale 
+sudo mkfontscale
+sudo mkfontdir
+ 
+# 如果提示 fc-cache: command not found
+# 在Ubuntu下运行如下命令
+# sudo apt-get install fontconfig
+# 在cent os下运行如下命令
+# yum install fontconfig
+sudo fc-cache -fv
+```
+
+**sudo mkfontscale 安装时有个细节需注意，会弹框让选择OK，需要先按Tab建选中OK，在Enter就可以了**
+
+* 重启系统：sudo reboot
 
 # 字体下载
 
